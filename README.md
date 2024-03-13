@@ -17,3 +17,6 @@
     - `rustup add component llvm-tools`
   - 编译时所有优化选项全开
   - 在容器内运行 `cargo size --release -- -A`，可以看到各个段落的占用
+- 烧写可以放在外头用 espflash 进行，选对端口基本就没问题了
+  - 使用[espflash](https://github.com/esp-rs/espflash/blob/main/espflash/README.md)进行烧写
+    - `espflash flash target/riscv32imc-esp-espidf/release/rust-project-esp32c3`

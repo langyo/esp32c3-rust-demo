@@ -13,7 +13,8 @@ fn main() -> anyhow::Result<()> {
     esp_idf_sys::link_patches();
 
     let peripherals = Peripherals::take().unwrap();
-    let mut led = PinDriver::output(peripherals.pins.gpio4)?;
+    // 合宙CORE ESP32C3 LED D4，对应引脚编号 12
+    let mut led = PinDriver::output(peripherals.pins.gpio12)?;
 
     println!("Hello world!");
     loop {
