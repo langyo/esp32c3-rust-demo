@@ -1,0 +1,24 @@
+[package]
+name = "rust-project-esp32c3"
+version = "0.1.0"
+authors = ["伊欧 <langyo.china@gmail.com>"]
+edition = "2021"
+resolver = "2"
+rust-version = "1.71"
+
+[profile.release]
+debug = false   # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+lto = true      # Link Time Optimization is a must for embedded systems
+panic = "abort" # No need to unwind the stack on panic
+
+[features]
+pio = ["esp-idf-sys/pio"]
+
+[dependencies]
+esp-idf-sys = { version = "0.34", features = ["binstart"] }
+esp-idf-hal = "0.43"
+anyhow = "1"
+
+[build-dependencies]
+embuild = "0.31"
